@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
   def create
-    pp create_params
     result = Users::Create.run(params: create_params.to_hash)
     if result.valid?
       render json: result.result.to_json
     else
-      render json: { error: true, messages: result.error.messages }, status: 422
+      render json: { error: true, messages: result.errors.messages }, status: 422
     end
   end
 

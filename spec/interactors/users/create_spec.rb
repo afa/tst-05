@@ -11,8 +11,9 @@ RSpec.describe Users::Create do
     let(:interactor_call) { described_class.run('params' => params) }
     let(:params) {
       {
+        'interests' => interest_names.join(','), 'skills' => skill_names.join(','),
         'name' => 'name', 'surname' => 'surname', 'patronymic' => 'patronymic', 'email' => 'email@example.com',
-        'age' => 10, 'nationality' => 'swe', 'country' => 'un', 'gender' => 'mail'
+        'age' => 10, 'nationality' => 'swe', 'country' => 'un', 'gender' => 'male'
       }
     }
 
