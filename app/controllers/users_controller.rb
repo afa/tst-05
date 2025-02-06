@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def create
-    result = Users::Create.run(params: create_params.to_hash)
+    result = Users::Create.run(create_params.to_hash)
     if result.valid?
       render json: result.result.to_json
     else
@@ -11,6 +11,6 @@ class UsersController < ApplicationController
   private
 
   def create_params
-    params.permit(:name, :patronymic, :surname, :email, :age, :interests, :skills, :country, :nationality, :gender)
+    params.permit(:name, :patronymic, :surname, :email, :age, :skills, :country, :nationality, :gender, interests: [])
   end
 end
